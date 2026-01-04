@@ -1,0 +1,9 @@
+# IAR/임베디드 관련 파일
+*.iai    binary
+*.iar    binary
+
+# 인증서 및 키 파일 (바이너리 포맷인 경우 대비)
+*.crt    binary
+*.key    binary
+*.der    binary
+*.pem    binary

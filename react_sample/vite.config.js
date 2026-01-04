@@ -1,0 +1,20 @@
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+
+// https://vite.dev/config/
+export default defineConfig({
+  plugins: [react()],
+    server: {
+      proxy: {
+        '/transkeyServlet': {
+          target: 'http://localhost:8080', // 스프링부트 서버 주소
+          changeOrigin: true,
+        },
+        '/api': {
+          target: 'http://localhost:8080', // 스프링부트 서버 주소
+          changeOrigin: true,
+          //rewrite: (path) => path.replace(/^\/api/, '') // /api를 제거하고 전달
+        }
+      }
+  }
+})
