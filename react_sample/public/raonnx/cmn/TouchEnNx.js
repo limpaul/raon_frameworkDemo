@@ -99,7 +99,7 @@ TouchEnNxConfig.processingbar = {
 /** demon 사용 브라우저 설정*/
 TouchEnNxConfig.daemon = {
 		SupportBrowser : ["EDGE", "CHROME", "FIREFOX", "OPERA"],
-		macSupportBrowser : ["SAFARI"], //일단 mac은 safari만 데몬 지원
+		macSupportBrowser : ["SAFARI","CHROME"], //일단 mac은 safari만 데몬 지원
 		linuxSupportBrowser : [],
 		info			: {
 			isUse			: true,
@@ -125,5 +125,5 @@ var TK_IEDaemon = false;
  */
  
 TouchEnNxConfig.runtype	= "onlydaemon"; //windows용 runtype
-TouchEnNxConfig.macRuntype = ""; //mac용 runtype
+TouchEnNxConfig.macRuntype = "onlydaemon"; //mac용 runtype
 TouchEnNxConfig.linuxRuntype = ""; //linux용 runtype

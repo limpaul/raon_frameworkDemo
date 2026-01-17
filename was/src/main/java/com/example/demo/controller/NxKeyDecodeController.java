@@ -29,7 +29,23 @@ public class NxKeyDecodeController {
         String tnksr = (String)dataMap.get("tnksr");
         String hidKeyData = (String)dataMap.get("hidKeyData");
         String e2eData = (String)dataMap.get("e2eData");
-        String privateKey = "C:/raon_cert/Private2048.key.der";
+
+        String privateKey = "";
+
+        String os = System.getProperty("os.name").toLowerCase();
+        // 키 경로를 다른 경로로 변경 해준다, 운영체제 별로 키 경로를 다르게 해준다
+        if(os.indexOf("win") >= 0){ // mac os 라면
+            privateKey = "C:/raon_cert/Private2048.key.der";
+        }else if(os.indexOf("mac") >= 0){
+            privateKey = "/Users/imbaul/raon_cert/Private2048.key.der";
+        }else if(os.indexOf("linux") >= 0){
+
+        }else{
+            resultMap.put("status", "-1");
+            resultMap.put("data", "지원하지 않은 운영체제 입니다. 키 경로를 올바르게 세팅해주세요");
+        }
+
+
 
         if(tnksr == null){ // non session을 사용하지 않고 session을 사용할 경우
             tnksr = (String)session.getAttribute("TEKSRK");
