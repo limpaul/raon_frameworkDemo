@@ -34,11 +34,11 @@ public class NxKeyDecodeController {
 
         String os = System.getProperty("os.name").toLowerCase();
         // 키 경로를 다른 경로로 변경 해준다, 운영체제 별로 키 경로를 다르게 해준다
-        if(os.indexOf("win") >= 0){ // mac os 라면
+        if(os.contains("win")){ // mac os 라면
             privateKey = "C:/raon_cert/Private2048.key.der";
-        }else if(os.indexOf("mac") >= 0){
+        }else if(os.contains("mac")){
             privateKey = "/Users/imbaul/raon_cert/Private2048.key.der";
-        }else if(os.indexOf("linux") >= 0){
+        }else if(os.contains("linux")){
 
         }else{
             resultMap.put("status", "-1");
