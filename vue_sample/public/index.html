@@ -5,7 +5,51 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
-    <title><%= htmlWebpackPlugin.options.title %></title>
+        <script>
+    (function() {
+      // 1. 접속 환경 판별
+      var isMobile = /Mobi|Android|iPhone/i.test(navigator.userAgent);
+      var path = isMobile ? '/transkey_mobile' : '/transkey';
+      
+      // 2. CSS 추가
+      var link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = path + '/transkey.css';
+      document.head.appendChild(link);
+
+      // 3. JS 순차 로드 함수 (의존성 유지)
+      function loadJS(src, callback) {
+        var script = document.createElement('script');
+        script.type = 'text/javascript';
+        script.src = src;
+        script.onload = callback;
+        document.head.appendChild(script);
+      }
+
+      // 4. 실행 (Config -> Main 순서 보장)
+      loadJS(isMobile?path+'/transkey_mobile_config.js':path+'/transkey_config.js', function() {
+        loadJS(path + '/transkey.js', function() {
+          console.log('Transkey 로드 완료 (' + (isMobile ? '모바일' : 'PC') + ')');
+        
+        });
+      });
+
+
+    })();
+  </script>
+  <!-- nxkey -->
+  <script type='text/javascript' charset='utf-8' src='/raonnx/cmn/TouchEnNx.js'></script>
+  <script type='text/javascript' charset='utf-8' src='/raonnx/cmn/json2.js'></script>
+  <script type='text/javascript' charset='utf-8' src='/raonnx/cmn/TouchEnNx_exproto.js'></script>
+  <script type='text/javascript' charset='utf-8' src='/raonnx/cmn/TouchEnNx_install.js'></script>
+  <script type='text/javascript' charset='utf-8' src='/raonnx/cmn/TouchEnNx_daemon.js'></script>
+  <script type='text/javascript' charset='utf-8' src='/raonnx/nxKey/js/nxkey_config.js'></script>
+  <script type='text/javascript' charset='utf-8' src='/raonnx/nxKey/js/TouchEnNxKey_Interface.js'></script>
+  <script type='text/javascript' charset='utf-8' src='/raonnx/nxKey/js/TouchEnNxKey.js'></script>
+
+  <!-- load nx solution -->
+  <script type='text/javascript' charset='utf-8' src='/raonnx/cmn/TouchEnNx_loader.js'></script>
   </head>
   <body>
     <noscript>
