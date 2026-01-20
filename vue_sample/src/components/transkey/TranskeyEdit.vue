@@ -1,5 +1,5 @@
 <template>
-    <input :type="type" :id="id" :name="name" :data-tk-kbdtype="keypadType" :placeholder="placeholder" @click="showKeyboard($event.target)"/>
+    <input :type="type" :id="id" :name="name" :data-tk-kbdtype="keypadType" :data-tk-nextSibling="nextSibling" :placeholder="placeholder" @click="showKeyboard($event.target)"/>
 </template>
 
 <script setup>
@@ -13,6 +13,7 @@ defineProps({
     id:String,
     name: String,
     keypadType: String,
+    nextSibling: String,
     placeholder: String
 })
 </script>
