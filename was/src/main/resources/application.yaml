@@ -1,3 +1,10 @@
 spring:
   application:
     name: demo
+
+rsa:
+  key:
+    base: C:/raon_cert
+    public: ${rsa.key.base}/Server2048.pem
+    private: ${rsa.key.base}/Private2048.key.der
+  winpath:
