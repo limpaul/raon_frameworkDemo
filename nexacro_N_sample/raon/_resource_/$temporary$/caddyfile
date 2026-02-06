@@ -1,0 +1,8 @@
+﻿{
+admin off
+}
+:4098
+{
+root "C:/Users/paul/Desktop/git_paul/raon_frameworkDemo/was/src/main/resources/static"
+file_server
+}

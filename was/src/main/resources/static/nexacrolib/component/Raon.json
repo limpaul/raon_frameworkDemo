@@ -1,0 +1,9 @@
+﻿{
+	"name": "Raon",
+	"version": "202408200900",
+	"description": "Nexacro N Unified Framework Library",
+	"license": "",
+	"scripts": [
+		"Raon/Raonkey.js"
+	]
+}
