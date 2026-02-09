@@ -1384,8 +1384,8 @@ function Transkey(){
 						if(input.getAttribute("data-tk-groupId")!=null&&tk.groupObjs[input.getAttribute("data-tk-groupId")]==null)
 							tk.setGroup(input.getAttribute("data-tk-groupId"));
 					}
-					tk.checkCSS();
-					tk.checkKeyVer();
+					//tk.checkCSS();
+					//tk.checkKeyVer();
 
 					initCallback();
 				}
