@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>websquare</name>
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>org.eclipse.wst.validation.validationbuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>com.inswave.websquare.sp5Nature</nature>
+		<nature>org.eclipse.wst.jsdt.core.jsNature</nature>
+	</natures>
+	<linkedResources>
+		<link>
+			<name>WebSquare Configure/client.config.xml</name>
+			<type>1</type>
+			<locationURI>$%7BPROJECT_LOC%7D/WebContent/websquare/config.xml</locationURI>
+		</link>
+		<link>
+			<name>WebSquare Configure/server.config.xml</name>
+			<type>1</type>
+			<locationURI>$%7BPROJECT_LOC%7D/.settings/websquare_home/config/websquare.xml</locationURI>
+		</link>
+	</linkedResources>
+</projectDescription>

@@ -4,6 +4,7 @@ import com.raonsecure.transkey.servlet.TranskeyServlet;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import websquare.http.DefaultRequestDispatcher;
 
 @Configuration
 public class ServletRegistConfig {
@@ -16,5 +17,13 @@ public class ServletRegistConfig {
         tr.addInitParameter("licenseIniPath","/raon_config/transkey_license.ini");
         tr.setLoadOnStartup(1);
         return tr;
+    }
+    @Bean
+    public ServletRegistrationBean<DefaultRequestDispatcher> defaultRequestDispatcherServletRegistrationBean(){
+        ServletRegistrationBean<DefaultRequestDispatcher> dr = new ServletRegistrationBean<>(new DefaultRequestDispatcher());
+        dr.addInitParameter("WEBSQUARE_HOME", "C:\\websquare_home");
+        dr.addUrlMappings("*.wq");
+        dr.setLoadOnStartup(2);
+        return dr;
     }
 }

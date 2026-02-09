@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<websquare>
+	<upload support="false">
+	
+		<baseDir value="C:/upload"></baseDir>
+		<!-- 
+			업로드하는 파일의 파일이름 인코딩
+		 -->
+		<encoding value="UTF-8" />
+		
+		<!-- 
+			upload size 기본 1M
+		 -->
+		<maxUploadSize value="5000000" />
+		
+		<!-- 
+			업로드 키 설정
+			session|random
+			default => session
+			
+			session 일때는 열린 세션당 하나의 폴더가 할당됨..
+		 -->
+		<uploadMode value="session" />
+		
+		<duplicatedFilePostFix value="yyyy-MM-dd(HH mm ss)"></duplicatedFilePostFix>
+		<!-- 
+			허용되는 업로드 파일
+			대소문자 구분 안함
+			, 로 구분해 줌
+		 -->
+		<allowedExtension>
+			gif, jpg, doc, xls, ppt, pdf, txt
+		</allowedExtension>
+		<deniedExtension>
+		exe
+		</deniedExtension>
+	</upload>
+	<dispatcher>
+		<post>
+			<!-- 
+				1. form을 통해서 post 방식으로 전달 되는 파라메터의 인코딩
+				2. 기본값 : ISO-8859-1
+			 -->
+			<encoding value="ISO8859-1"></encoding>
+		</post>
+	</dispatcher>
+	<excel>
+		<read>
+			<displayType value="number" />
+		</read>
+	</excel>
+	<!--
+		라이센스 정보를 볼 수 있는 IP 대역 설정
+	-->
+	<licenseInfoView>
+		<allowedIP value="192.168.* *" />
+	</licenseInfoView>
+	<!--
+	1 : 기존 엔진 - 기본값
+	2 : 기존 엔진(debug정보 제거)
+	3 : 신규 엔진
+	4 : 신규 엔진(debug정보 제거)
+	직접 지정하는 경우 : w2xType
+
+  etag
+    support : etag값을 비교하여 일치하면 상태코드를 304로 반환 (기본값)
+    notsupport : etag값 비교 지원 안함
+	deprecated
+		1이상의 정수, ALL, NONE를 입력할 수 있다.
+		ALL이 입력된 경우 deprecated가 설정된 모든 함수를 사용할 수 없다.
+		정수가 입력된 경우 정수보다 작거나 같은 버전으로 deprecated된 함수는 사용할 수 없다.
+		소스에 있는 deprecated 버전보다 큰 값이 입력되어도 오류가 발생하지는 않는다.
+		NONE가 입력된 경우 deprecated된 함수를 포함한 모든 함수를 사용할 수 있다.
+		설정이 없는 경우 NONE와 동일하다.
+		설정에 다른 값이 들어간 경우 NONE와 동일하다.
+	coverage : function coverage를 측정하기 위한 기능. engineType이 1,3,5인 경우만 정상 동작한다. 기본값은 notsupport이다. 운영환경에서는 설정하면 안된다. 
+		support | notsupport (*)
+	 -->
+	<engineType value="6" etag="support" coverage="notsupport" deprecated="NONE"/>
+	<i18n>
+			<!-- 
+			다국어 리소스 번들 파일이 존재하는 폴더. 설정이 없는 경우 $WEBSQUARE_HOME/locale를 사용한다. 
+			* 한국어의 경우 baseDir/ko/ 아래 파일이 존재함
+			* 영어의 경우 baseDir/en/ 아래 파일이 존재함
+			 -->
+			<baseDir value="C:\TNB\webdev\websquare_home\locale\"/>
+			<!--
+			기본 locale를 설정한다. 설정이 없는 경우 en을 사용한다. 
+			-->
+			<defaultLocale value="jp">
+				<domain name="localhost" locale="en"/>
+				<domain name="ko.shb.co.kr" locale="ko"/>
+				<domain name="en.shb.co.kr" locale="en"/>
+				<domain name="en.shb.co.kr" locale="en"/>
+			</defaultLocale>
+			<!-- 
+			변환에 사용할 다국어를 서버에 넘겨주기 위해 사용할 파라미터. 설정이 없는 경우 locale를 사용한다.
+			
+			다국어 판단 우선순위 
+			  1.url
+			  2.cookie 
+			  3.defaultLocale설정(domain별 default locale참조 후 전체 default locale 참조)
+			-->
+			<localeParam value="locale"/>
+			<!-- 
+			baseDir : 웹스퀘어 XML파일이 존재하는 폴더를 지정한다. 설정이 없는 경우 정상 동작하지 않는다.
+			cache : true | false 변환된 파일을 캐싱할지 설정한다. 기본값은 false이다.
+			-->
+			<xmlInfo baseDir="C:\TNB\webdev\webapps" cache="false"/>
+	</i18n>
+	<template default="html5">
+		<html4 value="template/websquare_html4.html"/>
+		<html5 value="template/websquare_html5.html"/>
+	</template>
+
+
+</websquare>
