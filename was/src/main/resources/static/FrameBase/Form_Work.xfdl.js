@@ -287,12 +287,24 @@
         this.nxkeyDiv_userpwchkBtn_onchanged = function(obj,e)
         {
         	if(obj.isChecked()){
-        		tk.onKeyboard(document.getElementById('mainframe.WorkFrame.form.nxkeyDiv.form.userpw:input'));
-        	}else{
-        		if(tk.now != null){
-        			tk.close();
-        			document.getElementById('mainframe.WorkFrame.form.nxkeyDiv.form.userpw:input').readOnly = false;
+        		if(isMobile()){
+        			mtk.onKeyboard(document.getElementById('mainframe.WorkFrame.form.nxkeyDiv.form.userpw:input'));
+        		}else{
+        			tk.onKeyboard(document.getElementById('mainframe.WorkFrame.form.nxkeyDiv.form.userpw:input'));
         		}
+
+        	}else{
+        		if(isMobile()){
+        			if(mtk.now != null){
+        				mtk.close();
+        			}
+        		}else{
+        			if(tk.now != null){
+        				tk.close();
+        			}
+        		}
+        		document.getElementById('mainframe.WorkFrame.form.nxkeyDiv.form.userpw:input').readOnly = false;
+
         	}
         };
 
@@ -301,12 +313,22 @@
         this.nxkeyDiv_userNumchkBtn_onchanged = function(obj,e)
         {
         	if(obj.isChecked()){
-        		tk.onKeyboard(document.getElementById('mainframe.WorkFrame.form.nxkeyDiv.form.usernum:input'));
-        	}else{
-        		if(tk.now != null){
-        			tk.close();
-        			document.getElementById('mainframe.WorkFrame.form.nxkeyDiv.form.usernum:input').readOnly = false;
+        		if(isMobile()){
+        			mtk.onKeyboard(document.getElementById('mainframe.WorkFrame.form.nxkeyDiv.form.usernum:input'));
+        		}else{
+        			tk.onKeyboard(document.getElementById('mainframe.WorkFrame.form.nxkeyDiv.form.usernum:input'));
         		}
+        	}else{
+        		if(isMobile()){
+        			if(mtk.now != null){
+        				mtk.close();
+        			}
+        		}else{
+        			if(tk.now != null){
+        				tk.close();
+        			}
+        		}
+        		document.getElementById('mainframe.WorkFrame.form.nxkeyDiv.form.usernum:input').readOnly = false;
         	}
         };
 
@@ -326,7 +348,11 @@
         {
         	const isChecked = this.nxkeyDiv.form.userNumchkBtn.isChecked();
         	if(isChecked){
-        		tk.onKeyboard(document.getElementById('mainframe.WorkFrame.form.nxkeyDiv.form.usernum:input'));
+        		if(isMobile()){
+        			mtk.onKeyboard(document.getElementById('mainframe.WorkFrame.form.nxkeyDiv.form.usernum:input'));
+        		}else{
+        			tk.onKeyboard(document.getElementById('mainframe.WorkFrame.form.nxkeyDiv.form.usernum:input'));
+        		}
         	}else{
         		document.getElementById('mainframe.WorkFrame.form.nxkeyDiv.form.usernum:input').readOnly = false;
         	}
