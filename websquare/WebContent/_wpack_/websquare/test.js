@@ -1,0 +1,170 @@
+/*amd /websquare/test.xml 8413 d273acad3db16c68b6056b6c998fc9e85a09e7f8fc5538efa5c5eb493adc20d5 */
+define({declaration:{A:{version:'1.0',encoding:'UTF-8'}},E:[{T:1,N:'html',A:{xmlns:'http://www.w3.org/1999/xhtml','xmlns:ev':'http://www.w3.org/2001/xml-events','xmlns:w2':'http://www.inswave.com/websquare','xmlns:xf':'http://www.w3.org/2002/xforms'},E:[{T:1,N:'head',E:[{T:1,N:'w2:type',E:[{T:3,text:'COMPONENT'}]},{T:1,N:'w2:buildDate'},{T:1,N:'w2:MSA'},{T:1,N:'xf:model',E:[{T:1,N:'w2:dataCollection',A:{baseNode:'map'}},{T:1,N:'w2:workflowCollection'}]},{T:1,N:'w2:layoutInfo'},{T:1,N:'w2:publicInfo',A:{method:''}},{T:1,N:'script',A:{lazy:'false',type:'text/javascript'},E:[{T:4,cdata:function(scopeObj){with(scopeObj){
+scwin.onpageload = function() {
+    // 키보드보안 로드 
+    if(!isMobile()){ // pc환경에서만 사용한다 
+		// 키보드보안 서버 랜덤키를 가져온다 
+		keyboardSecurityAjaxTest('/api/nxkey/tnksr', '', function(res){
+			tekOption.srdk = res;
+			TNK_SR = res;
+			tekOption.srdk = TNK_SR;
+			TK_Loading();
+			initTranskey();
+		})
+	}else{
+		mtk_useTranskey = true; // 가상키패드 강제 사용 설정
+		initmTranskey();
+	}
+};
+
+// 키보드보안 데이터 전송시 사용 
+function keyboardSecurityAjaxTest(url, data, callback){
+		const req = new XMLHttpRequest();
+		req.open("POST", url);
+		req.setRequestHeader("Content-Type","application/json");
+		
+		req.onreadystatechange = function() {
+			if (req.readyState === 4) {   // DONE
+				// 성공
+				if (req.status === 200) {
+					console.log("응답:", req.responseText);
+					callback(req.responseText); // 서버 랜던 키 값을 넣어준다 
+				} else {
+					console.error("에러:", req.status, req.responseText);
+				}
+			}
+		};
+	
+		req.send(JSON.stringify(data));
+}
+// 사용자 비밀번호 구간암호화 복호화 nkey, transkey
+const userPwDecodeBtn = function(id)
+{
+	
+	
+	const hidKeyData = document.getElementById('hid_key_data').value;
+	const e2eValue = document.getElementById('E2E_mainframe.WorkFrame.form.nxkeyDiv.form.userpw:input').value;
+	
+	var data = {};
+	const isChecked = this.nxkeyDiv.form.userpwchkBtn.isChecked();
+	if(!isChecked){
+		data = {
+			'tnksr':TNK_SR,
+			'hidKeyData': hidKeyData,
+			'e2eData': e2eValue
+		}
+	}else{ 
+			!isMobile()?tk.fillEncData():mtk.fillEncData(); // hmac 값 생성
+			const id = 'mainframe.WorkFrame.form.nxkeyDiv.form.userpw:input';
+			const initTime = document.getElementById('initTime').value;
+			const keyboardType = transkey[id].keyboardType;
+			const keyIndex = transkey[id].keyIndex;
+			const fieldType = transkey[id].fieldType;
+			const seedKey = document.getElementById('seedKey').value;
+			const encoded = transkey[id].hidden.value;
+			const hmEncoded = transkey[id].hmac.value;
+			
+			data = {
+				'id':id,
+				'initTime':initTime,
+				'keyboardType':keyboardType,
+				'keyIndex':keyIndex,
+				'fieldType':fieldType,
+				'seedKey':seedKey,
+				'encoded':encoded,
+				'hmEncoded':hmEncoded
+			}		
+		
+
+	}
+	
+	keyboardSecurityAjaxTest(!isChecked?'/api/nxkey/decode':'/api/transkey/decode',data,(res)=>{
+		const extraDivObj = document.getElementById('mainframe.WorkFrame.form.nxkeyDiv.form.extraDiv:textarea');
+		trace(res);
+		extraDivObj.value = JSON.stringify(res);
+	})
+};
+
+// 사용자 주민번호 구간암호화 복호화 nkey, transkey
+const userNumDecodeBtn = function(id)
+{
+	const hidKeyData = document.getElementById('hid_key_data').value;
+	const e2eValue = document.getElementById('E2E_mainframe.WorkFrame.form.nxkeyDiv.form.usernum:input').value;
+	
+	var data = {};
+	const isChecked = this.nxkeyDiv.form.userNumchkBtn.isChecked();
+	
+	if(!isChecked){
+		data = {
+			'tnksr':TNK_SR,
+			'hidKeyData': hidKeyData,
+			'e2eData': e2eValue
+		}
+	}else{
+		tk.fillEncData(); // hmac 값 생성
+		const id = 'mainframe.WorkFrame.form.nxkeyDiv.form.usernum:input';
+		const initTime = document.getElementById('initTime').value;
+		const keyboardType = transkey[id].keyboardType;
+		const keyIndex = transkey[id].keyIndex;
+		const fieldType = transkey[id].fieldType;
+		const seedKey = document.getElementById('seedKey').value;
+		const encoded = transkey[id].hidden.value;
+		const hmEncoded = transkey[id].hmac.value;
+		
+		data = {
+			'id':id,
+			'initTime':initTime,
+			'keyboardType':keyboardType,
+			'keyIndex':keyIndex,
+			'fieldType':fieldType,
+			'seedKey':seedKey,
+			'encoded':encoded,
+			'hmEncoded':hmEncoded
+		}
+	}
+		
+	keyboardSecurityAjaxTest(!isChecked?'/api/nxkey/decode':'/api/transkey/decode',data,(res)=>{
+		const extraDivObj = document.getElementById('mainframe.WorkFrame.form.nxkeyDiv.form.extraDiv:textarea');
+		trace(res);
+		extraDivObj.value = JSON.stringify(res);
+	})
+};
+
+
+function isMobile(){
+	   const ua = navigator.userAgent;
+  
+	  // 1. 기본 UserAgent 판별 (안드로이드, 아이폰 등)
+	  const isUADataMobile = /Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(ua);
+
+	  // 2. 터치 지원 여부 (MDN 권장 방식) - PC는 보통 0, 모바일은 1 이상
+	  const hasTouchPoints = navigator.maxTouchPoints > 0;
+
+	  // 3. 최신 브라우저 지원 (Client Hints API)
+	  const isUAClientMobile = navigator.userAgentData ? navigator.userAgentData.mobile : false;
+
+	  // 4. iPadOS 데스크탑 모드 대응 (UA에는 Macintosh로 나오지만 터치가 지원됨)
+	  const isIPadDesktopMode = (ua.includes("Macintosh") && hasTouchPoints);
+
+	  return isUADataMobile || isUAClientMobile || isIPadDesktopMode;
+}
+
+scwin.loginBtn_onclick = function(e) {
+    keyboardSecurityAjaxTest('/api/nxkey/decode', {
+        hidKeyData: document.getElementById('hid_key_data').value,
+        e2eData: document.getElementById('E2E_mf_userpw').value
+    }, (res)=>{
+        document.getElementById('mf_extraDiv').value = res;
+    })
+
+    const usernum = document.getElementById('mf_usernum');
+    if(usernum.value.length > 0){
+            keyboardSecurityAjaxTest('/api/nxkey/decode', {
+            hidKeyData: document.getElementById('hid_key_data').value,
+            e2eData: document.getElementById('E2E_mf_usernum').value
+        }, (res)=>{
+            document.getElementById('mf_extraDiv').value += ' | '+res;
+        })
+    }
+};
+}}}]}]},{T:1,N:'body',A:{'ev:onpageload':'scwin.onpageload'},E:[{T:1,N:'xf:group',A:{id:'',style:'position:static;top:208px;left:355px;width:372px;height:227px;'},E:[{T:1,N:'w2:textbox',A:{id:'',label:'websqaure demo',style:'position:static;top:214px;left:21px;width:345px;height:38px;font-size:2em;font-weight:bold;'}},{T:1,N:'xf:input',A:{adjustMaxLength:'false',id:'userid',placeholder:'사용자아이디',style:'position:static;top:78px;left:87px;width:253px;height:42px;'}},{T:1,N:'xf:input',A:{adjustMaxLength:'false',id:'userpw',placeholder:'사용자 비밀번호',style:'position:static;top:78px;left:225px;width:253px;height:40px;',type:'password'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:data-enc',E:[{T:3,text:'on'}]},{T:1,N:'w2:data-tk-kbdtype',E:[{T:3,text:'qwerty'}]}]}]},{T:1,N:'xf:input',A:{adjustMaxLength:'false',id:'usernum',placeholder:'사용자 넘버',style:'position:static;top:78px;left:225px;width:253px;height:38px;',type:'password'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:data-enc',E:[{T:3,text:'on'}]},{T:1,N:'w2:data-tk-kbdype',E:[{T:3,text:'number'}]}]}]},{T:1,N:'xf:trigger',A:{id:'loginBtn',style:'width:258px;height:43px;',type:'button','ev:onclick':'scwin.loginBtn_onclick'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'로그인'}]}]}]},{T:1,N:'xf:group',A:{id:'',style:'position:static;top:359px;left:104px;width:447px;height:88px;'},E:[{T:1,N:'xf:input',A:{adjustMaxLength:'false',id:'plainText',placeholder:'서명원문 값',style:'position:static;top:363px;left:126px;width:385px;height:21px;'}},{T:1,N:'xf:input',A:{adjustMaxLength:'false',id:'vidRandom',placeholder:'인증서에 대한 주민번호 또는 사업자 번호 R값이 표시됩니다',readOnly:'true',style:'position:static;top:363px;left:126px;width:384px;height:21px;'}},{T:1,N:'xf:trigger',A:{id:'',style:'position:static;top:341px;left:209px;width:103px;height:23px;',type:'button'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'전자서명'}]}]},{T:1,N:'xf:trigger',A:{id:'',style:'position:static;top:341px;left:209px;width:103px;height:23px;',type:'button'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'본인확인'}]}]},{T:1,N:'xf:trigger',A:{id:'',style:'position:static;top:341px;left:209px;width:103px;height:23px;',type:'button'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'구간암호화'}]}]}]},{T:1,N:'xf:textarea',A:{id:'extraDiv',readOnly:'true',style:'width: 800px;height: 300px;'}}]}]}]})
