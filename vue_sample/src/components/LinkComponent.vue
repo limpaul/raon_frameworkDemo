@@ -6,6 +6,7 @@
             <li><router-link to="/mtranskey">모바일 웹 가상키패드 샘플</router-link></li>
             <li><router-link to="/nxkey">키보드보안 샘플</router-link></li>
             <li><router-link to="/nxkey/e2e">키보드보안 구간암호화 샘플</router-link></li>
+            <li><router-link to="/biz">PKI key#biz 전자서명 및 구간암호화 샘플</router-link></li>
         </ul>
     </nav>
     <router-view/> 

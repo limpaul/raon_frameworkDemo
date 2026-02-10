@@ -1,3 +1,4 @@
+import BizComponent from '@/components/biz/BizComponent.vue'
 import HomeComponent from '@/components/HomeComponent.vue'
 import MtranskeySample from '@/components/mtranskey/MtranskeySample.vue'
 import NxKeyE2ESample from '@/components/nxkey/NxKeyE2ESample.vue'
@@ -30,6 +31,11 @@ const routes = [
     path: '/nxkey/e2e',
     name: 'NxKeyE2ESample',
     component: NxKeyE2ESample
+  },
+  {
+    path: '/biz',
+    name: 'BizSample',
+    component: BizComponent
   }
 ]
 
