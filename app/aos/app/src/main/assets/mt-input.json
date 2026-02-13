@@ -1,0 +1,394 @@
+{
+  "keyboard": {
+    "qwerty_lower": {
+      "description": "쿼티 소문자 보안키패드",
+      "rearrange": "dummy-row",
+      "partition": "divide",
+      "row": [
+        {
+          "general": {
+            "key": [
+              {"type": "input", "value": "1"},
+              {"type": "input", "value": "2"},
+              {"type": "input", "value": "3"},
+              {"type": "input", "value": "4"},
+              {"type": "input", "value": "5"},
+              {"type": "input", "value": "6"},
+              {"type": "input", "value": "7"},
+              {"type": "input", "value": "8"},
+              {"type": "input", "value": "9"},
+              {"type": "input", "value": "0"}
+            ]
+          },
+          "dummy": {
+            "key": [
+              {"type": "dummy", "style": "dum"},
+              {"type": "dummy", "style": "dum"}
+            ]
+          }
+        },
+        {
+          "general": {
+            "key": [
+              {"type": "input", "value": "q", "holder2": "ㅂ", "description": "%desc_q"},
+              {"type": "input", "value": "w", "holder2": "ㅈ", "description": "%desc_w"},
+              {"type": "input", "value": "e", "holder2": "ㄷ", "description": "%desc_e"},
+              {"type": "input", "value": "r", "holder2": "ㄱ", "description": "%desc_r"},
+              {"type": "input", "value": "t", "holder2": "ㅅ", "description": "%desc_t"},
+              {"type": "input", "value": "y", "holder2": "ㅛ", "description": "%desc_y"},
+              {"type": "input", "value": "u", "holder2": "ㅕ", "description": "%desc_u"},
+              {"type": "input", "value": "i", "holder2": "ㅑ", "description": "%desc_i"},
+              {"type": "input", "value": "o", "holder2": "ㅐ", "description": "%desc_o"},
+              {"type": "input", "value": "p", "holder2": "ㅔ", "description": "%desc_p"}
+            ]
+          },
+          "dummy": {
+            "key": [
+              {"type": "dummy", "style": "dum"},
+              {"type": "dummy", "style": "dum"}
+            ]
+          }
+        },
+        {
+          "general": {
+            "key": [
+              {"type": "space", "weight": 0.5, "style": "space", "fixed": true},
+              {"type": "input", "value": "a", "holder2": "ㅁ", "description": "%desc_a"},
+              {"type": "input", "value": "s", "holder2": "ㄴ", "description": "%desc_s"},
+              {"type": "input", "value": "d", "holder2": "ㅇ", "description": "%desc_d"},
+              {"type": "input", "value": "f", "holder2": "ㄹ", "description": "%desc_f"},
+              {"type": "input", "value": "g", "holder2": "ㅎ", "description": "%desc_g"},
+              {"type": "input", "value": "h", "holder2": "ㅗ", "description": "%desc_h"},
+              {"type": "input", "value": "j", "holder2": "ㅓ", "description": "%desc_j"},
+              {"type": "input", "value": "k", "holder2": "ㅏ", "description": "%desc_k"},
+              {"type": "input", "value": "l", "holder2": "ㅣ", "description": "%desc_l"},
+              {"type": "space", "weight": 0.5, "style": "space", "fixed": true}
+            ]
+          },
+          "dummy": {
+            "key": [
+              {"type": "dummy", "style": "dum"},
+              {"type": "dummy", "style": "dum"}
+            ]
+          }
+        },
+        {
+          "general": {
+            "key": [
+              {"type": "func", "onclick": "show(qwerty_upper);rearrange()", "holder1": "@mt_ic_shift.png", "weight": 1.5, "style": "fun_normal", "fixed": true, "description": "%desc_upper"},
+              {"type": "input", "value": "z", "holder2": "ㅋ", "description": "%desc_z"},
+              {"type": "input", "value": "x", "holder2": "ㅌ", "description": "%desc_x"},
+              {"type": "input", "value": "c", "holder2": "ㅊ", "description": "%desc_c"},
+              {"type": "input", "value": "v", "holder2": "ㅍ", "description": "%desc_v"},
+              {"type": "input", "value": "b", "holder2": "ㅠ", "description": "%desc_b"},
+              {"type": "input", "value": "n", "holder2": "ㅜ", "description": "%desc_n"},
+              {"type": "input", "value": "m", "holder2": "ㅡ", "description": "%desc_m"},
+              {"type": "func", "onclick": "backspace()", "onpressed": "backspace()", "holder1": "@mt_ic_backspace.png", "weight": 1.5, "style": "fun_normal", "fixed": true, "description": "%desc_backspace"}
+            ]
+          },
+          "dummy": {
+            "key": [
+              {"type": "dummy", "style": "dum"},
+              {"type": "dummy", "style": "dum"}
+            ]
+          }
+        },
+        {
+          "style": "last",
+          "general": {
+            "key": [
+              {"type": "func", "onclick": "rearrange()", "holder1": "@mt_ic_rearrange.png", "weight": 1.5, "style": "fun_normal", "fixed": true, "description": "%desc_rearrange"},
+              {"type": "func", "onclick": "show(symbol1)", "holder1": "@mt_ic_change.png", "weight": 1.5, "style": "fun_normal", "fixed": true, "description": "%desc_symbol"},
+              {"type": "input", "value": " ", "holder1": "@mt_ic_spacebar.png", "weight": 5.5, "fixed": true, "description": "%desc_space"},
+              {"type": "func", "onclick": "clear()", "holder1": "@mt_ic_clear.png", "weight": 1.5, "style": "fun_normal", "fixed": true, "description": "%desc_clear"},
+              {"type": "func", "onclick": "done()", "holder1": "@mt_ic_done.png", "weight": 2, "style": "fun_normal", "fixed": true, "description": "%desc_done"}
+            ]
+          },
+          "divide": {
+            "type": "split",
+            "index": 2
+          }
+        }
+      ]
+    },
+    "qwerty_upper": {
+      "description": "쿼티 대문자 보안키패드",
+      "rearrange": "dummy-row",
+      "partition": "divide",
+      "row": [
+        {
+          "general": {
+            "key": [
+              {"type": "input", "value": "1"},
+              {"type": "input", "value": "2"},
+              {"type": "input", "value": "3"},
+              {"type": "input", "value": "4"},
+              {"type": "input", "value": "5"},
+              {"type": "input", "value": "6"},
+              {"type": "input", "value": "7"},
+              {"type": "input", "value": "8"},
+              {"type": "input", "value": "9"},
+              {"type": "input", "value": "0"}
+            ]
+          },
+          "dummy": {
+            "key": [
+              {"type": "dummy", "style": "dum"},
+              {"type": "dummy", "style": "dum"}
+            ]
+          }
+        },
+        {
+          "general": {
+            "key": [
+              {"type": "input", "value": "Q", "holder2": "ㅃ", "description": "%desc_Q"},
+              {"type": "input", "value": "W", "holder2": "ㅉ", "description": "%desc_W"},
+              {"type": "input", "value": "E", "holder2": "ㄸ", "description": "%desc_E"},
+              {"type": "input", "value": "R", "holder2": "ㄲ", "description": "%desc_R"},
+              {"type": "input", "value": "T", "holder2": "ㅆ", "description": "%desc_T"},
+              {"type": "input", "value": "Y", "holder2": "ㅛ", "description": "%desc_Y"},
+              {"type": "input", "value": "U", "holder2": "ㅕ", "description": "%desc_U"},
+              {"type": "input", "value": "I", "holder2": "ㅑ", "description": "%desc_I"},
+              {"type": "input", "value": "O", "holder2": "ㅒ", "description": "%desc_O"},
+              {"type": "input", "value": "P", "holder2": "ㅖ", "description": "%desc_P"}
+            ]
+          },
+          "dummy": {
+            "key": [
+              {"type": "dummy", "style": "dum"},
+              {"type": "dummy", "style": "dum"}
+            ]
+          }
+        },
+        {
+          "general": {
+            "key": [
+              {"type": "space", "style": "space", "weight": 0.5, "fixed": true},
+              {"type": "input", "value": "A", "holder2": "ㅁ", "description": "%desc_A"},
+              {"type": "input", "value": "S", "holder2": "ㄴ", "description": "%desc_S"},
+              {"type": "input", "value": "D", "holder2": "ㅇ", "description": "%desc_D"},
+              {"type": "input", "value": "F", "holder2": "ㄹ", "description": "%desc_F"},
+              {"type": "input", "value": "G", "holder2": "ㅎ", "description": "%desc_G"},
+              {"type": "input", "value": "H", "holder2": "ㅗ", "description": "%desc_H"},
+              {"type": "input", "value": "J", "holder2": "ㅓ", "description": "%desc_J"},
+              {"type": "input", "value": "K", "holder2": "ㅏ", "description": "%desc_K"},
+              {"type": "input", "value": "L", "holder2": "ㅣ", "description": "%desc_L"},
+              {"type": "space", "style": "space", "weight": 0.5, "fixed": true}
+            ]
+          },
+          "dummy": {
+            "key": [
+              {"type": "dummy", "style": "dum"},
+              {"type": "dummy", "style": "dum"}
+            ]
+          }
+        },
+        {
+          "general": {
+            "key": [
+              {"type": "func", "onclick": "show(qwerty_lower);rearrange()", "holder1": "@mt_ic_shift_on.png", "style": "fun_normal", "weight": 1.5, "fixed": true, "description": "%desc_lower"},
+              {"type": "input", "value": "Z", "holder2": "ㅋ", "description": "%desc_Z"},
+              {"type": "input", "value": "X", "holder2": "ㅌ", "description": "%desc_X"},
+              {"type": "input", "value": "C", "holder2": "ㅊ", "description": "%desc_C"},
+              {"type": "input", "value": "V", "holder2": "ㅍ", "description": "%desc_V"},
+              {"type": "input", "value": "B", "holder2": "ㅠ", "description": "%desc_B"},
+              {"type": "input", "value": "N", "holder2": "ㅜ", "description": "%desc_N"},
+              {"type": "input", "value": "M", "holder2": "ㅡ", "description": "%desc_M"},
+              {"type": "func", "onclick": "backspace()", "onpressed": "backspace()", "holder1": "@mt_ic_backspace.png", "style": "fun_normal", "weight": 1.5, "fixed": true, "description": "%desc_backspace"}
+            ]
+          },
+          "dummy": {
+            "key": [
+              {"type": "dummy", "style": "dum"},
+              {"type": "dummy", "style": "dum"}
+            ]
+          }
+        },
+        {
+          "style": "last",
+          "general": {
+            "key": [
+              {"type": "func", "onclick": "rearrange", "holder1": "@mt_ic_rearrange.png", "weight": 1.5, "style": "fun_normal", "fixed": "true", "description": "%desc_rearrange"},
+              {"type": "func", "onclick": "show(symbol1)", "holder1": "@mt_ic_change.png", "weight": 1.5, "style": "fun_normal", "fixed": "true", "description": "%desc_symbol"},
+              {"type": "input", "value": " ", "holder1": "@mt_ic_spacebar.png", "weight": 5.5, "fixed": "true", "description": "%desc_space"},
+              {"type": "func", "onclick": "clear()", "holder1": "@mt_ic_clear.png", "weight": 1.5, "style": "fun_normal", "fixed": true, "description": "%desc_clear"},
+              {"type": "func", "onclick": "done()", "holder1": "@mt_ic_done.png", "weight": 2, "style": "fun_normal", "fixed": "true", "description": "%desc_done"}
+            ]
+          },
+          "divide": {
+            "type": "split",
+            "index": 2
+          }
+        }
+      ]
+    },
+    "symbol1": {
+      "description": "심볼 보안키패드",
+      "rearrange": "dummy-row",
+      "partition": "divide",
+      "row": [
+        {
+          "general": {
+            "key": [
+              {"type": "input", "value": "`"},
+              {"type": "input", "value": "!"},
+              {"type": "input", "value": "@"},
+              {"type": "input", "value": "#"},
+              {"type": "input", "value": "$"},
+              {"type": "input", "value": "%"},
+              {"type": "input", "value": "^"},
+              {"type": "input", "value": "&"},
+              {"type": "input", "value": "*"}
+            ]
+          },
+          "dummy": {
+            "key": [
+              {"type": "dummy", "style": "dum"},
+              {"type": "dummy", "style": "dum"}
+            ]
+          }
+        },
+        {
+          "general": {
+            "key": [
+              {"type": "input", "value": "("},
+              {"type": "input", "value": ")"},
+              {"type": "input", "value": "-"},
+              {"type": "input", "value": "="},
+              {"type": "input", "value": "\\"},
+              {"type": "input", "value": "["},
+              {"type": "input", "value": "]"},
+              {"type": "input", "value": ";"},
+              {"type": "input", "value": "'"}
+            ]
+          },
+          "dummy": {
+            "key": [
+              {"type": "dummy", "style": "dum"},
+              {"type": "dummy", "style": "dum"}
+            ]
+          }
+        },
+        {
+          "general": {
+            "key": [
+              {"type": "input", "value": ","},
+              {"type": "input", "value": "."},
+              {"type": "input", "value": "/"},
+              {"type": "input", "value": "~"},
+              {"type": "input", "value": "_"},
+              {"type": "input", "value": "+"},
+              {"type": "input", "value": "|"},
+              {"type": "input", "value": "{"},
+              {"type": "input", "value": "}"}
+            ]
+          },
+          "dummy": {
+            "key": [
+              {"type": "dummy", "style": "dum"},
+              {"type": "dummy", "style": "dum"}
+            ]
+          }
+        },
+        {
+          "general": {
+            "key": [
+              {"type": "input", "value": ":"},
+              {"type": "input", "value": "\""},
+              {"type": "input", "value": "<"},
+              {"type": "input", "value": ">"},
+              {"type": "input", "value": "?"},
+              {"type": "space", "style": "space", "weight": 0.5, "fixed": true},
+              {"type": "func", "onclick": "backspace()", "holder1": "@mt_ic_backspace.png", "weight": 1.5, "style": "fun_normal", "fixed": true, "description": "%desc_backspace"}
+            ]
+          },
+          "dummy": {
+            "key": [
+              {"type": "dummy", "style": "dum"},
+              {"type": "dummy", "style": "dum"},
+              {"type": "dummy", "style": "dum"},
+              {"type": "dummy", "style": "dum"}
+            ]
+          }
+        },
+        {
+          "style": "last",
+          "general": {
+            "key": [
+              {"type": "func", "onclick": "rearrange()", "holder1": "@mt_ic_rearrange.png", "weight": 1.5, "style": "fun_normal", "fixed": true, "description": "%desc_rearrange"},
+              {"type": "func", "onclick": "show(qwerty_lower)", "holder1": "@mt_ic_change.png", "weight": 1.5, "style": "fun_normal", "fixed": true, "description": "%desc_lower"},
+              {"type": "input", "value": " ", "holder1": "@mt_ic_spacebar.png", "weight": 5.5, "fixed": true, "description": "%desc_space"},
+              {"type": "func", "onclick": "clear()", "holder1": "@mt_ic_clear.png", "weight": 1.5, "style": "fun_normal", "fixed": true, "description": "%desc_clear"},
+              {"type": "func", "onclick": "done()", "holder1": "@mt_ic_done.png", "weight": 2, "style": "fun_normal", "fixed": true, "description": "%desc_done"}
+            ]
+          },
+          "divide": {
+            "type": "split",
+            "index": 2
+          }
+        }
+      ]
+    },
+    "number": {
+      "description": "숫자 보안키패드",
+      "rearrange": "dummy-all",
+      "partition": "shrink",
+      "row": [
+        {
+          "general": {
+            "key": [
+              {"type": "input", "value": "1", "style": "num"},
+              {"type": "input", "value": "2", "style": "num"},
+              {"type": "input", "value": "3", "style": "num"},
+              {"type": "input", "value": "4", "style": "num"}
+            ]
+          }
+        },
+        {
+          "general": {
+            "key": [
+              {"type": "input", "value": "5", "style": "num"},
+              {"type": "input", "value": "6", "style": "num"},
+              {"type": "input", "value": "7", "style": "num"},
+              {"type": "input", "value": "8", "style": "num"}
+            ]
+          }
+        },
+        {
+          "general": {
+            "key": [
+              {"type": "input", "value": "9", "style": "num"},
+              {"type": "input", "value": "0", "style": "num"}
+            ]
+          },
+          "dummy": {
+            "key": [
+              {"type": "dummy", "style": "dum"},
+              {"type": "dummy", "style": "dum"}
+            ]
+          }
+        },
+        {
+          "style": "last",
+          "general": {
+            "key": [
+              {"type": "func", "onclick": "backspace()", "holder1": "@mt_ic_backspace.png", "weight": 1, "style": "num_fun", "fixed": true, "description": "%desc_backspace"},
+              {"type": "func", "onclick": "rearrange()", "holder1": "@mt_ic_rearrange.png", "weight": 1, "style": "num_fun", "fixed": true, "description": "%desc_rearrange"},
+              {"type": "func", "onclick": "done()", "holder1": "@mt_ic_done.png", "weight": 2, "style": "num_fun", "fixed": true, "description": "%desc_done"}
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "pattern": {
+    "p1": {
+      "description": "패턴 입력이 시작됩니다",
+      "style": "pst1"
+    },
+    "p2": {
+      "description": "패턴 입력이 시작됩니다",
+      "style": "pst2"
+    }
+  }
+}

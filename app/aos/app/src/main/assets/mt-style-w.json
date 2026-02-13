@@ -1,0 +1,96 @@
+{
+  "keyboard": {
+    "base": {
+      "padding": "0"
+    }
+  },
+  "row": {
+    "base": {
+      "margin": "1"
+    },
+    "last": {
+      "margin": "2 1 0 1"
+    }
+  },
+  "key": {
+    "base": {
+      "holder1Color": "#000000|#FFFFFF",
+      "holder1Style": "",
+      "holder2Color": "#888888|#AAAAAA",
+      "holder2Style": "",
+      "holder2Position": "topright",
+      "margin": "2",
+      "padding": "4",
+      "background": "#FFFFFF|#000000",
+      "borderWidth": "0",
+      "borderColor": "#000000|#FFFFFF",
+      "borderRadius": "8",
+
+      "waterEffectSize": "2",
+      "waterEffectColor": "#FF8400AA|#FFFFFFAA",
+
+      "bubbleEffectMargin": "6",
+      "bubbleEffectRadius": "10",
+      "bubbleEffectSize": "1.0",
+      "bubbleEffectShadowColor": "#818181|#BCBCBC",
+
+      "filterEffectColor": "#00000033|#FFFFFF33",
+
+      "effect": "bubble,filter"
+    },
+    "fun1": {
+      "holder1Color": "#FF0400",
+      "holder1Style": "",
+      "background": "@img_key_bg1.png",
+      "effect": "filter,bubble",
+      "alphaEffectOpacity": "0.5"
+    },
+    "fun2": {
+      "background": "#DDDDDD|#444444",
+      "effect": "water,bubble"
+    },
+    "dum": {
+      "background": "#00000000",
+      "borderWidth": "0",
+      "holder1Color": "#FFFFFF",
+      "holder1Style": "italic"
+    },
+    "space": {
+      "background": "#00000000",
+      "borderWidth": "0"
+    },
+    "num": {
+      "effect": "water",
+      "margin": "10"
+    },
+    "num_fun": {
+      "effect": "water",
+      "margin": "10"
+    }
+  },
+  "pattern": {
+    "base": {
+      "dotSize": "15",
+      "dotSizeActivated": "20",
+      "lineWidth": "10"
+    },
+    "pst1": {
+      "defaultDotColor": "#777777",
+      "drawingDotColor": "#77CC77",
+      "drawingLineColor": "#77CC7733",
+      "failureDotColor": "#CC7777",
+      "failureLineColor": "#CC777733",
+      "successDotColor": "#7777CC",
+      "successLineColor": "#7777CC33"
+    },
+    "pst2": {
+      "defaultDotColor": "#000000|#FFFFFF",
+      "drawingDotColor": "#00FF00",
+      "drawingLineColor": "#00FF0033",
+      "failureDotColor": "#FF0000",
+      "failureLineColor": "#FF000033",
+      "successDotColor": "#0000FF",
+      "successLineColor": "#0000FF33"
+    }
+  }
+}

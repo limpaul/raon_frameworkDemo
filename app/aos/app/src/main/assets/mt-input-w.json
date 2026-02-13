@@ -1,0 +1,58 @@
+{
+  "keyboard": {
+    "num1": {
+      "description": "숫자 보안키패드",
+      "rearrange": "random",
+      "partition": "shrink",
+      "row": [
+        {
+          "general": {
+            "key": [
+              {"type": "input", "value": "1", "style": "num"},
+              {"type": "input", "value": "2", "style": "num"},
+              {"type": "input", "value": "3", "style": "num"}
+            ]
+          }
+        },
+        {
+          "general": {
+            "key": [
+              {"type": "input", "value": "4", "style": "num"},
+              {"type": "input", "value": "5", "style": "num"},
+              {"type": "input", "value": "6", "style": "num"}
+            ]
+          }
+        },
+        {
+          "general": {
+            "key": [
+              {"type": "input", "value": "7", "style": "num"},
+              {"type": "input", "value": "8", "style": "num"},
+              {"type": "input", "value": "9", "style": "num"}
+            ]
+          }
+        },
+        {
+          "style": "last",
+          "general": {
+            "key": [
+              {"type": "func", "onclick": "rearrange()", "holder1": "%rearrange", "style": "num_fun", "fixed": true, "description": "%desc_rearrange"},
+              {"type": "input", "value": "0", "style": "num"},
+              {"type": "func", "onclick": "backspace()", "onpressed": "backspace()", "holder1": "@mt_ic_backspace.png", "weight": 1, "style": "num_fun", "fixed": true, "description": "%desc_backspace"}
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "pattern": {
+    "p1": {
+      "description": "패턴 입력이 시작됩니다",
+      "style": "pst1"
+    },
+    "p2": {
+      "description": "패턴 입력이 시작됩니다",
+      "style": "pst2"
+    }
+  }
+}

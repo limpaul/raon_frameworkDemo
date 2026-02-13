@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CtrlViewAcitivty">
+
+    <TextView
+        android:id="@+id/toolbar"
+        android:text="CtrlView Keypad"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        style="@style/MTDemoToolbar" />
+
+    <com.raonsecure.mtranskey.view.MTEditText
+        android:id="@+id/edit_text1"
+        android:saveEnabled="false"
+        android:layout_width="0dp"
+        android:hint="qwerty 키패드"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:textColor="@color/mt_demo_black"
+        android:background="@drawable/mt_underline_bg"
+        android:singleLine="true"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        />
+    <Button
+        android:id="@+id/keypadQwertyDecodeBtn"
+        android:text="복호화"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/edit_text1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        />
+    <com.raonsecure.mtranskey.view.MTEditText
+        android:id="@+id/edit_text2"
+        android:saveEnabled="false"
+        android:layout_width="0dp"
+        android:hint="number 키패드"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:textColor="@color/mt_demo_black"
+        android:background="@drawable/mt_underline_bg"
+        android:singleLine="true"
+        app:layout_constraintTop_toBottomOf="@+id/keypadQwertyDecodeBtn"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        />
+    <Button
+        android:id="@+id/keypadNumberDecodeBtn"
+        android:text="복호화"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/edit_text2"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        />
+
+    <!-- 결과 출력용 스크롤뷰 영역 시작 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/keypadNumberDecodeBtn"
+        app:layout_constraintBottom_toTopOf="@id/mtk_container">
+
+        <!-- 첫 번째 스크롤뷰 (상단) -->
+        <ScrollView
+            android:id="@+id/result_scroll1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:fillViewport="true">
+
+            <TextView
+                android:id="@+id/encryptResultText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="12dp"
+                android:text="qwerty 결과가 여기 표시됩니다." />
+        </ScrollView>
+
+        <!-- 두 번째 스크롤뷰 (하단) -->
+        <ScrollView
+            android:id="@+id/result_scroll2"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:fillViewport="true">
+
+            <TextView
+                android:id="@+id/decodeResultText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="12dp"
+                android:text="서버로 부터 복호화 결과가 여기 표시됩니다." />
+        </ScrollView>
+
+    </LinearLayout>
+
+    <!-- 키보드의 show/hide 를 담당하는 mtk_container -->
+    <LinearLayout
+        android:id="@+id/mtk_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:visibility="gone">
+
+        <!-- 키보드가 들어가는 input_container -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/input_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            app:layout_constraintVertical_chainStyle="spread"
+            app:layout_constraintBottom_toBottomOf="parent" />
+    </LinearLayout>
+
+    <!-- 터치 이펙트가 보여지는 effect_container -->
+    <com.raonsecure.mtranskey.view.EffectView
+        android:visibility="gone"
+        android:id="@+id/effect_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
