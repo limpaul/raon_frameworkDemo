@@ -55,8 +55,21 @@ public class SampleBootConfig {
         try{
             // 윈도우 운영체제인가?
             Boolean isWin = System.getProperty("os.name").toLowerCase().contains("windows");
+            Boolean isMac = System.getProperty("os.name").toLowerCase().contains("mac");
             if(isWin){
                 // 실제 운영체제의 rsa키 파일 위치 유무를 체크한다
+                if(!Files.exists(Paths.get(nxkeyKeyFolderPath))){
+                    Files.createDirectory(Paths.get(nxkeyKeyFolderPath));
+                    copyResourceFile("classpath:raon_cert/Server2048.pem", publicKeyPath); // 공개키 파일 없으면 resources 폴더로 부터 생성한다
+                    copyResourceFile("classpath:raon_cert/Private2048.key.der", privateKeyPath); // 개인키 파일 없으면 resources 폴더로 부터 생성한다
+                }else{
+                    System.out.println("이미 raon_cert폴더가 존재합니다");
+                }
+            }else if(isMac){
+                String macOSBasePath = "/tmp/raon_cert";
+                nxkeyKeyFolderPath = nxkeyKeyFolderPath.replace("C:/raon_cert","/tmp/raon_cert");
+                privateKeyPath = privateKeyPath.replace("C:/raon_cert","/tmp/raon_cert");
+                publicKeyPath = publicKeyPath.replace("C:/raon_cert","/tmp/raon_cert");
                 if(!Files.exists(Paths.get(nxkeyKeyFolderPath))){
                     Files.createDirectory(Paths.get(nxkeyKeyFolderPath));
                     copyResourceFile("classpath:raon_cert/Server2048.pem", publicKeyPath); // 공개키 파일 없으면 resources 폴더로 부터 생성한다

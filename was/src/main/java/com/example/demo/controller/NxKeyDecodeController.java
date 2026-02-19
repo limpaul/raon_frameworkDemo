@@ -37,7 +37,7 @@ public class NxKeyDecodeController {
         if(os.contains("win")){ // mac os 라면
             privateKey = "C:/raon_cert/Private2048.key.der";
         }else if(os.contains("mac")){
-            privateKey = "/Users/imbaul/raon_cert/Private2048.key.der";
+            privateKey = "/tmp/raon_cert/Private2048.key.der";
         }else if(os.contains("linux")){
 
         }else{
