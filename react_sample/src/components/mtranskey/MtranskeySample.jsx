@@ -34,6 +34,7 @@ function MtranskeySample(){
         setCount(count - 1);
         window.mtk.remove(document.getElementById(id)); // 가상키패드 input 요소마다 관리 객체 제거
     }
+
     return (
         <>
             <LinkComponent/>

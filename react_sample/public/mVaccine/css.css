@@ -1,0 +1,84 @@
+@charset "UTF-8";
+
+	/*
+ * TouchEn mVaccine css
+ * Copyright(C)2015 RaonSecure Co., Ltd.
+ * Version 2.2.3
+ * 2021-05-13
+ */
+ 
+/* defualt */
+body,input,textarea,select,button,table{font-family:'占쏙옙占쏙옙占쏙옙占�,NanumGothic,'占쏙옙占쏙옙占쏙옙占�,'Malgun Gothic','占쏙옙占쏙옙',Dotum,'占쏙옙占쏙옙',Gulim,Helvetica,sans-serif}
+body,p,h1,h2,h3,h4,h5,h6,ul,ol,li,dl,dt,dd,table,th,td,form,fieldset,legend,input,textarea,button,select{margin:0;padding:0}
+body,input,textarea,select,button,table,h1,h2,h3,h4,h5{font-size:18px;}
+body{
+	background: -webkit-gradient(linear,left top,left bottom,from(#f1eee5),to(#f0ede3));
+	background-color: #f0ede3;
+}
+}
+table{border-collapse:collapse}
+img,fieldset{border:0}
+img{vertical-align:top;}
+ul,ol{list-style:none}
+em,address{font-style:normal}
+a{color:inherit;text-decoration:none}
+ 
+/* common */
+.blind{display:block;overflow:hidden;position:absolute;top:-1000em;left:0;}
+.bold{font-weight:bold;}
+.border0{border:0 !important;}
+ 
+/* layout */
+#wrap{
+	margin : 0 auto;
+	padding : 0 14px;
+}
+#header{
+	width:100%;
+	height:40px;
+	padding-top:20px;
+	text-align:center;
+}
+#container{
+padding-top: 28px;
+padding-bottom: 28px;
+background: -webkit-gradient(linear,left top,left bottom,from(#fdfcfb),to(#fcfcfa));
+background-color: #fcfcfa;
+border: 1px solid #dfdcd9;
+border-top-left-radius: 4px;
+border-top-right-radius: 4px;
+border-bottom-left-radius: 4px;
+border-bottom-right-radius: 4px;
+text-align:center;
+}
+#footer{
+color: #999;
+font-size: 10px;
+font-family: 'Tahoma','Helvetica';
+text-align: center;
+letter-spacing: 0;
+padding: 50px 0 8px;
+}
+ 
+/* header */
+.header{}
+ 
+/* footer */
+.footer{}
+
+button { font-family: "Malgun Gothic", "留묒� 怨좊뵓", "Dotum", "�뗭�"; }
+.btn_type01 button {
+margin-top : 4px;
+width: 240px;
+height: 69px;
+color: #fff;
+font-weight: bold;
+font-size: 16px;
+border: 1px solid #33363a;
+background: -webkit-gradient(linear,left top,right bottom,from(#6d6f74),to(#2d3034));
+background-color: #2d3034;
+border-top-left-radius: 4px;
+border-top-right-radius: 4px;
+border-bottom-left-radius: 4px;
+border-bottom-right-radius: 4px;
+}

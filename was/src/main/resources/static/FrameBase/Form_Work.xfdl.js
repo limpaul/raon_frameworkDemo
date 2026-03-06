@@ -105,6 +105,28 @@
         	}else{
         		mtk_useTranskey = true; // 가상키패드 강제 사용 설정
         		initmTranskey();
+        		const blockAllEvents = (e) => {
+                  e.stopPropagation();
+                };
+                const eventTypes = [
+                  "click",
+                  "mousedown",
+                  "mouseup",
+                  "keydown",
+                  "keyup",
+                  "keypress",
+                  "touchstart",
+                  "touchend",
+                  "touchmove",
+                  "wheel",
+                  "input",
+                  "change"
+                ];
+                document.querySelectorAll(".transkey").forEach(el => {
+                  eventTypes.forEach(type => {
+                    el.addEventListener(type, blockAllEvents);
+                  });
+                });
         	}
 
         };

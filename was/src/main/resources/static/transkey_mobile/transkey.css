@@ -394,6 +394,8 @@
 }
 
 .dv_transkey_disp {
+    /*bwlim nexa 예외*/
+    position: static;
 	height: 35px;
     background-color: rgb(244, 244, 244);
     border-bottom: 1px rgb(167, 168, 176) solid;
@@ -471,6 +473,8 @@
 }
 
 .dv_transkey_div_2 {
+    /* bwlim nexacro */
+    position: static;
 	height: 60px;
 	text-align: center;
 }
