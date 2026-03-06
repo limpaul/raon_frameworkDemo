@@ -35,6 +35,25 @@
         });
       });
 
+     if(isMobile){
+        loadJS('/mVaccine/rsa_oaep-min.js', function(){
+          loadJS('/mVaccine/jsbn-min.js', function(){
+            loadJS('/mVaccine/TouchEn_mVaccine_config.js', function(){
+              loadJS('/mVaccine/TouchEn_mVaccine.js', function(){
+                  console.log('mVaccine Web 로드 완료');
+                  console.log('사용자 정보 '+navigator.userAgent+' / Touch Value: '+navigator.maxTouchPoints);
+                  
+              })
+            })
+          })
+        })
+        // 2. CSS 추가
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = '/mVaccine/transkey.css';
+        document.head.appendChild(link);
+     }
 
     })();
   </script>

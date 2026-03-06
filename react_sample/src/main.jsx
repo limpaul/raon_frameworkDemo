@@ -7,6 +7,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import NxKeySample from './components/nxkey/NxKeySample.jsx'
 import NxKeyE2ESample from './components/nxkey/NxKeyE2ESample.jsx'
 import BizComponent from './components/biz/BizComponent.jsx'
+import MVaccineComponent from './components/vaccine/MVaccineComponent.jsx'
 
 
 const router = createBrowserRouter([
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
   {
     path: "/biz",
     element: <BizComponent/>,
+  },
+  {
+    path: "/mvaccine",
+    element: <MVaccineComponent/>,
   },
 ]);
 

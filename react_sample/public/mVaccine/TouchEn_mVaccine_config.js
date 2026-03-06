@@ -3,7 +3,7 @@ String.prototype.contains = function(str) {
 };
 
 var mvaccine_version = "version=7.4.15";//앱 최소 버전 기입(설정된 버전 이하 버전 앱 사용 시 모두 업데이트 요청)
-var mvaccine_domain = "http://domain";//ex : http://127.0.0.1:8080
+var mvaccine_domain = window.location.origin;//ex : http://127.0.0.1:8080
 var mvaccine_path = "";               // Path url ex: http//127.0.0.1:8080/homepath 일 때 path="/homepath" 설정 (단,PATH가 / 일 경우 ""(공백)으로 사용한다.)
 var mvaccine_callback_url = "/mvaccineforweb"; // domain + path + callback_url (mVaccineWebServelet url)
 var mvaccine_mode = "mini"; //악성앱 검사 실행 방식 ("mini" : 미니 화면 검사 | "full" : 풀 화면 검사)

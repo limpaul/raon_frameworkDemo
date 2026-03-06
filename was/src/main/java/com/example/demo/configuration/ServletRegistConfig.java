@@ -30,7 +30,7 @@ public class ServletRegistConfig {
 
     @Bean
     public ServletRegistrationBean<MVaccineWebServlet> mVaccineWebServletServletRegistrationBean(){
-        ServletRegistrationBean<MVaccineWebServlet> sr = new ServletRegistrationBean<>(new MVaccineWebServlet());
+        ServletRegistrationBean<MVaccineWebServlet> sr = new ServletRegistrationBean<>(new MVaccineWebServlet(), "/fo/*");
         sr.addInitParameter("isRealPath", "false");
         sr.addInitParameter("isClassPath", "true");
         sr.addInitParameter("iniFilePath", "/raon_config/mVaccineWebConfig.ini");
